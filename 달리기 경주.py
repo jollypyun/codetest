@@ -1,4 +1,4 @@
-# 링크 : 
+# 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/178871#
 
 # 실패 사례 1 (9~13 시간 초과 실패) : 단순 스왑
 def solution(players, callings):
