@@ -36,3 +36,27 @@ union-find 알고리즘을 이용함.
 #     return answer
 
 # 성공코드
+def solution(n, wires):
+    answer = n
+    subs = [wires[i+1:] + wires[:i] for i in range(len(wires))]
+
+    
+    for sub in subs:
+        s = set(sub[0])
+        for _ in sub:
+            for element in sub:
+                if set(element) & s:
+                    s.update(element)
+        answer = min(abs(2 * len(s) - n), answer)
+    return answer
+
+
+'''
+완전 탐색 문제이다.
+
+subs 라는 곳에 전선 하나씩 빠진 상태의 리스트들을 담는다.
+순회를 돌면서 각 케이스마다 두 그룹마다 송전탑 개수의 차이를 본다.
+
+이중 FOR문 돌면서 한 그룹의 송전탑이 몇개인지 확인한다.
+이렇게 돌면서 두 그룹 사이의 차가 최소인 것을 찾는다.
+'''
